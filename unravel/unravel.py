@@ -115,7 +115,7 @@ def contains_list(interest_column):
 
 def expand(chosen_column,prefix):
 
-    f_dict=first_dicct(chosen_column)
+    f_dict=first_dict(chosen_column)
     dictionary = []
     
     len_dict=len(f_dict)
@@ -144,7 +144,7 @@ def expand(chosen_column,prefix):
 
 def expand_noKey(chosen_column):
     
-    f_dict=first_dicct(chosen_column)
+    f_dict=first_dict(chosen_column)
     dictionary = []
 
     len_dict=len(f_dict)
