@@ -113,9 +113,11 @@ def contains_list(interest_column):
 ######### Dict to Columns   ############ V1.0
 ########################################
 
-def expand(chosen_column,prefix,f_dict):
+def expand(chosen_column,prefix):
 
+    f_dict=first_dicct(chosen_column)
     dictionary = []
+    
     len_dict=len(f_dict)
     empty_dict=dict(zip(f_dict.keys(), [np.nan]*len_dict))
 
@@ -140,8 +142,9 @@ def expand(chosen_column,prefix,f_dict):
 ######### Dict to Columns nokey ######## V1.0
 ########################################
 
-def expand_noKey(chosen_column,f_dict):
-
+def expand_noKey(chosen_column):
+    
+    f_dict=first_dicct(chosen_column)
     dictionary = []
 
     len_dict=len(f_dict)
