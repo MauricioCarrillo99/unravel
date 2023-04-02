@@ -176,7 +176,7 @@ def unravel(Df):
   if it_contains(expand_names,Df.columns.tolist())==True:
        for i in expand_names:
 
-         df_aux=expand(Df[i].tolist(),i)   
+         df_aux=expand(Df[i],i)   
 
          position_insert=Df.columns.get_loc(i)
          Df=dataframe_res(Df,position_insert+1,df_aux)
