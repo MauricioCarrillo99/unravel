@@ -1,0 +1,2901 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# **Package**"
+      ],
+      "metadata": {
+        "id": "K8kiuFWvx5kl"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "First , we need to install the package *unravel* using !pip statment. This step is necessary since it is the base for everything we'll be doing next. Also, add the *git+* at the begging of the repository link, as follows:"
+      ],
+      "metadata": {
+        "id": "rPjnjKC9XZPx"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!pip install git+https://github.com/maxelOA/unravel.git"
+      ],
+      "metadata": {
+        "id": "I7NHJTgGDxYQ",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "7e881f22-8556-4b54-a60b-221f21aee9e5"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/\n",
+            "Collecting git+https://github.com/maxelOA/unravel.git\n",
+            "  Cloning https://github.com/maxelOA/unravel.git to /tmp/pip-req-build-eppruzxg\n",
+            "  Running command git clone --filter=blob:none --quiet https://github.com/maxelOA/unravel.git /tmp/pip-req-build-eppruzxg\n",
+            "  Resolved https://github.com/maxelOA/unravel.git to commit b37f3c04a8104019dabbd5aadd3f09037f968093\n",
+            "  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\n",
+            "Requirement already satisfied: numpy>=1.21.6 in /usr/local/lib/python3.9/dist-packages (from unravel==1.0) (1.22.4)\n",
+            "Requirement already satisfied: pandas>=1.3.5 in /usr/local/lib/python3.9/dist-packages (from unravel==1.0) (1.4.4)\n",
+            "Requirement already satisfied: requests>=2.25.1 in /usr/local/lib/python3.9/dist-packages (from unravel==1.0) (2.27.1)\n",
+            "Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.9/dist-packages (from pandas>=1.3.5->unravel==1.0) (2022.7.1)\n",
+            "Requirement already satisfied: python-dateutil>=2.8.1 in /usr/local/lib/python3.9/dist-packages (from pandas>=1.3.5->unravel==1.0) (2.8.2)\n",
+            "Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.9/dist-packages (from requests>=2.25.1->unravel==1.0) (3.4)\n",
+            "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.9/dist-packages (from requests>=2.25.1->unravel==1.0) (2022.12.7)\n",
+            "Requirement already satisfied: urllib3<1.27,>=1.21.1 in /usr/local/lib/python3.9/dist-packages (from requests>=2.25.1->unravel==1.0) (1.26.15)\n",
+            "Requirement already satisfied: charset-normalizer~=2.0.0 in /usr/local/lib/python3.9/dist-packages (from requests>=2.25.1->unravel==1.0) (2.0.12)\n",
+            "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.9/dist-packages (from python-dateutil>=2.8.1->pandas>=1.3.5->unravel==1.0) (1.16.0)\n",
+            "Building wheels for collected packages: unravel\n",
+            "  Building wheel for unravel (setup.py) ... \u001b[?25l\u001b[?25hdone\n",
+            "  Created wheel for unravel: filename=unravel-1.0-py3-none-any.whl size=3477 sha256=03b3994612365c9a60aa49c707a4258eb34cf5e675d9ba6b826bf2fb38b60438\n",
+            "  Stored in directory: /tmp/pip-ephem-wheel-cache-90sdvd3s/wheels/93/37/d3/95d235f41ee3660fb8d2ad06fee9eafd6826410b10205a8c5d\n",
+            "Successfully built unravel\n",
+            "Installing collected packages: unravel\n",
+            "Successfully installed unravel-1.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### link:"
+      ],
+      "metadata": {
+        "id": "UiiJBeYYYErW"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "https://github.com/maxelOA/unravel.git"
+      ],
+      "metadata": {
+        "id": "X3fXMK9MYINL"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "We import the package as follows"
+      ],
+      "metadata": {
+        "id": "zpoaOpjDXxRc"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import unravel.unravel as un\n",
+        "import pandas as pd\n",
+        "import requests as r"
+      ],
+      "metadata": {
+        "id": "EgQTD2duH2I9"
+      },
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# **UNRAVEL PACK**\n"
+      ],
+      "metadata": {
+        "id": "at1u_KsOX5R8"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## DataFrame"
+      ],
+      "metadata": {
+        "id": "7HqGD5JAGovj"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "url='http://ergast.com/api/f1/2022/results.json'\n",
+        "data=pd.DataFrame(r.get(url).json()['MRData']['RaceTable']['Races'][0]['Results'])\n",
+        "data.head()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 337
+        },
+        "id": "iNVA9t0OGtlZ",
+        "outputId": "f440d006-f712-422e-e34a-39d88e1f130a"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "  number position positionText points  \\\n",
+              "0     16        1            1     26   \n",
+              "1     55        2            2     18   \n",
+              "2     44        3            3     15   \n",
+              "3     63        4            4     12   \n",
+              "4     20        5            5     10   \n",
+              "\n",
+              "                                              Driver  \\\n",
+              "0  {'driverId': 'leclerc', 'permanentNumber': '16...   \n",
+              "1  {'driverId': 'sainz', 'permanentNumber': '55',...   \n",
+              "2  {'driverId': 'hamilton', 'permanentNumber': '4...   \n",
+              "3  {'driverId': 'russell', 'permanentNumber': '63...   \n",
+              "4  {'driverId': 'kevin_magnussen', 'permanentNumb...   \n",
+              "\n",
+              "                                         Constructor grid laps    status  \\\n",
+              "0  {'constructorId': 'ferrari', 'url': 'http://en...    1   57  Finished   \n",
+              "1  {'constructorId': 'ferrari', 'url': 'http://en...    3   57  Finished   \n",
+              "2  {'constructorId': 'mercedes', 'url': 'http://e...    5   57  Finished   \n",
+              "3  {'constructorId': 'mercedes', 'url': 'http://e...    9   57  Finished   \n",
+              "4  {'constructorId': 'haas', 'url': 'http://en.wi...    7   57  Finished   \n",
+              "\n",
+              "                                           Time  \\\n",
+              "0  {'millis': '5853584', 'time': '1:37:33.584'}   \n",
+              "1       {'millis': '5859182', 'time': '+5.598'}   \n",
+              "2       {'millis': '5863259', 'time': '+9.675'}   \n",
+              "3      {'millis': '5864795', 'time': '+11.211'}   \n",
+              "4      {'millis': '5868338', 'time': '+14.754'}   \n",
+              "\n",
+              "                                          FastestLap  \n",
+              "0  {'rank': '1', 'lap': '51', 'Time': {'time': '1...  \n",
+              "1  {'rank': '3', 'lap': '52', 'Time': {'time': '1...  \n",
+              "2  {'rank': '5', 'lap': '53', 'Time': {'time': '1...  \n",
+              "3  {'rank': '6', 'lap': '56', 'Time': {'time': '1...  \n",
+              "4  {'rank': '8', 'lap': '53', 'Time': {'time': '1...  "
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-560de3e7-abd6-48f6-9815-c449f8de376e\">\n",
+              "    <div class=\"colab-df-container\">\n",
+              "      <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>number</th>\n",
+              "      <th>position</th>\n",
+              "      <th>positionText</th>\n",
+              "      <th>points</th>\n",
+              "      <th>Driver</th>\n",
+              "      <th>Constructor</th>\n",
+              "      <th>grid</th>\n",
+              "      <th>laps</th>\n",
+              "      <th>status</th>\n",
+              "      <th>Time</th>\n",
+              "      <th>FastestLap</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>16</td>\n",
+              "      <td>1</td>\n",
+              "      <td>1</td>\n",
+              "      <td>26</td>\n",
+              "      <td>{'driverId': 'leclerc', 'permanentNumber': '16...</td>\n",
+              "      <td>{'constructorId': 'ferrari', 'url': 'http://en...</td>\n",
+              "      <td>1</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>{'millis': '5853584', 'time': '1:37:33.584'}</td>\n",
+              "      <td>{'rank': '1', 'lap': '51', 'Time': {'time': '1...</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>55</td>\n",
+              "      <td>2</td>\n",
+              "      <td>2</td>\n",
+              "      <td>18</td>\n",
+              "      <td>{'driverId': 'sainz', 'permanentNumber': '55',...</td>\n",
+              "      <td>{'constructorId': 'ferrari', 'url': 'http://en...</td>\n",
+              "      <td>3</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>{'millis': '5859182', 'time': '+5.598'}</td>\n",
+              "      <td>{'rank': '3', 'lap': '52', 'Time': {'time': '1...</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>44</td>\n",
+              "      <td>3</td>\n",
+              "      <td>3</td>\n",
+              "      <td>15</td>\n",
+              "      <td>{'driverId': 'hamilton', 'permanentNumber': '4...</td>\n",
+              "      <td>{'constructorId': 'mercedes', 'url': 'http://e...</td>\n",
+              "      <td>5</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>{'millis': '5863259', 'time': '+9.675'}</td>\n",
+              "      <td>{'rank': '5', 'lap': '53', 'Time': {'time': '1...</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>63</td>\n",
+              "      <td>4</td>\n",
+              "      <td>4</td>\n",
+              "      <td>12</td>\n",
+              "      <td>{'driverId': 'russell', 'permanentNumber': '63...</td>\n",
+              "      <td>{'constructorId': 'mercedes', 'url': 'http://e...</td>\n",
+              "      <td>9</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>{'millis': '5864795', 'time': '+11.211'}</td>\n",
+              "      <td>{'rank': '6', 'lap': '56', 'Time': {'time': '1...</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>20</td>\n",
+              "      <td>5</td>\n",
+              "      <td>5</td>\n",
+              "      <td>10</td>\n",
+              "      <td>{'driverId': 'kevin_magnussen', 'permanentNumb...</td>\n",
+              "      <td>{'constructorId': 'haas', 'url': 'http://en.wi...</td>\n",
+              "      <td>7</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>{'millis': '5868338', 'time': '+14.754'}</td>\n",
+              "      <td>{'rank': '8', 'lap': '53', 'Time': {'time': '1...</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>\n",
+              "      <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-560de3e7-abd6-48f6-9815-c449f8de376e')\"\n",
+              "              title=\"Convert this dataframe to an interactive table.\"\n",
+              "              style=\"display:none;\">\n",
+              "        \n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\"viewBox=\"0 0 24 24\"\n",
+              "       width=\"24px\">\n",
+              "    <path d=\"M0 0h24v24H0V0z\" fill=\"none\"/>\n",
+              "    <path d=\"M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z\"/><path d=\"M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z\"/>\n",
+              "  </svg>\n",
+              "      </button>\n",
+              "      \n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      flex-wrap:wrap;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "      <script>\n",
+              "        const buttonEl =\n",
+              "          document.querySelector('#df-560de3e7-abd6-48f6-9815-c449f8de376e button.colab-df-convert');\n",
+              "        buttonEl.style.display =\n",
+              "          google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "        async function convertToInteractive(key) {\n",
+              "          const element = document.querySelector('#df-560de3e7-abd6-48f6-9815-c449f8de376e');\n",
+              "          const dataTable =\n",
+              "            await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                     [key], {});\n",
+              "          if (!dataTable) return;\n",
+              "\n",
+              "          const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "            '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "            + ' to learn more about interactive tables.';\n",
+              "          element.innerHTML = '';\n",
+              "          dataTable['output_type'] = 'display_data';\n",
+              "          await google.colab.output.renderOutput(dataTable, element);\n",
+              "          const docLink = document.createElement('div');\n",
+              "          docLink.innerHTML = docLinkHtml;\n",
+              "          element.appendChild(docLink);\n",
+              "        }\n",
+              "      </script>\n",
+              "    </div>\n",
+              "  </div>\n",
+              "  "
+            ]
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## st_df"
+      ],
+      "metadata": {
+        "id": "Xi8u1-oHOxXL"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "st_df(*DataFrame*)"
+      ],
+      "metadata": {
+        "id": "qEL1jEz-YPrI"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Retrieve the name of the columns that contain dict/list in their elements"
+      ],
+      "metadata": {
+        "id": "V5tUo_1VOiE6"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "un.st_df(data)"
+      ],
+      "metadata": {
+        "id": "-KJ6ngVDFmWl",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "a58286d9-9d30-4d9f-e0a1-bd4afc0686c1"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['Driver', 'Constructor', 'Time', 'FastestLap']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 4
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## expand and expand_noKey"
+      ],
+      "metadata": {
+        "id": "w6_tbjavO4JY"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "We'll be working with the Driver column so assign it to a variable, like this:"
+      ],
+      "metadata": {
+        "id": "HDgVPd3zPJsw"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "Driver=data['Driver']\n",
+        "Driver.head()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "LtVgVBd2JEMz",
+        "outputId": "6168fcfa-402f-42f2-ada3-00ff56b43f60"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0    {'driverId': 'leclerc', 'permanentNumber': '16...\n",
+              "1    {'driverId': 'sainz', 'permanentNumber': '55',...\n",
+              "2    {'driverId': 'hamilton', 'permanentNumber': '4...\n",
+              "3    {'driverId': 'russell', 'permanentNumber': '63...\n",
+              "4    {'driverId': 'kevin_magnussen', 'permanentNumb...\n",
+              "Name: Driver, dtype: object"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "We get the keys stored in the dictionary"
+      ],
+      "metadata": {
+        "id": "AFb_NsO1P3gt"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "un.first_dict(Driver).keys()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "GbaW2ydrJgZv",
+        "outputId": "f0b8017a-101f-4d5d-fcd2-58727cff99d6"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "dict_keys(['driverId', 'permanentNumber', 'code', 'url', 'givenName', 'familyName', 'dateOfBirth', 'nationality'])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### expand_noKey"
+      ],
+      "metadata": {
+        "id": "a3wbUa4XQEEQ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Expand the information inside of every dict into their own column without a specific index:\n"
+      ],
+      "metadata": {
+        "id": "igRvZzOmQIyL"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "expand_noKey( *Column*)"
+      ],
+      "metadata": {
+        "id": "rVnm5L6FQZtY"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "un.expand_noKey(Driver).head()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 206
+        },
+        "id": "mrX_w3w7RV_o",
+        "outputId": "079258b3-462f-49a4-e0a9-5595bc3f6822"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "          driverId permanentNumber code  \\\n",
+              "0          leclerc              16  LEC   \n",
+              "1            sainz              55  SAI   \n",
+              "2         hamilton              44  HAM   \n",
+              "3          russell              63  RUS   \n",
+              "4  kevin_magnussen              20  MAG   \n",
+              "\n",
+              "                                                 url givenName familyName  \\\n",
+              "0       http://en.wikipedia.org/wiki/Charles_Leclerc   Charles    Leclerc   \n",
+              "1      http://en.wikipedia.org/wiki/Carlos_Sainz_Jr.    Carlos      Sainz   \n",
+              "2        http://en.wikipedia.org/wiki/Lewis_Hamilton     Lewis   Hamilton   \n",
+              "3  http://en.wikipedia.org/wiki/George_Russell_%2...    George    Russell   \n",
+              "4       http://en.wikipedia.org/wiki/Kevin_Magnussen     Kevin  Magnussen   \n",
+              "\n",
+              "  dateOfBirth nationality  \n",
+              "0  1997-10-16  Monegasque  \n",
+              "1  1994-09-01     Spanish  \n",
+              "2  1985-01-07     British  \n",
+              "3  1998-02-15     British  \n",
+              "4  1992-10-05      Danish  "
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-13168d5b-af1f-4f55-bcd5-8609202aeb4f\">\n",
+              "    <div class=\"colab-df-container\">\n",
+              "      <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>driverId</th>\n",
+              "      <th>permanentNumber</th>\n",
+              "      <th>code</th>\n",
+              "      <th>url</th>\n",
+              "      <th>givenName</th>\n",
+              "      <th>familyName</th>\n",
+              "      <th>dateOfBirth</th>\n",
+              "      <th>nationality</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>leclerc</td>\n",
+              "      <td>16</td>\n",
+              "      <td>LEC</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Charles_Leclerc</td>\n",
+              "      <td>Charles</td>\n",
+              "      <td>Leclerc</td>\n",
+              "      <td>1997-10-16</td>\n",
+              "      <td>Monegasque</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>sainz</td>\n",
+              "      <td>55</td>\n",
+              "      <td>SAI</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Carlos_Sainz_Jr.</td>\n",
+              "      <td>Carlos</td>\n",
+              "      <td>Sainz</td>\n",
+              "      <td>1994-09-01</td>\n",
+              "      <td>Spanish</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>hamilton</td>\n",
+              "      <td>44</td>\n",
+              "      <td>HAM</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Lewis_Hamilton</td>\n",
+              "      <td>Lewis</td>\n",
+              "      <td>Hamilton</td>\n",
+              "      <td>1985-01-07</td>\n",
+              "      <td>British</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>russell</td>\n",
+              "      <td>63</td>\n",
+              "      <td>RUS</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/George_Russell_%2...</td>\n",
+              "      <td>George</td>\n",
+              "      <td>Russell</td>\n",
+              "      <td>1998-02-15</td>\n",
+              "      <td>British</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>kevin_magnussen</td>\n",
+              "      <td>20</td>\n",
+              "      <td>MAG</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Kevin_Magnussen</td>\n",
+              "      <td>Kevin</td>\n",
+              "      <td>Magnussen</td>\n",
+              "      <td>1992-10-05</td>\n",
+              "      <td>Danish</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>\n",
+              "      <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-13168d5b-af1f-4f55-bcd5-8609202aeb4f')\"\n",
+              "              title=\"Convert this dataframe to an interactive table.\"\n",
+              "              style=\"display:none;\">\n",
+              "        \n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\"viewBox=\"0 0 24 24\"\n",
+              "       width=\"24px\">\n",
+              "    <path d=\"M0 0h24v24H0V0z\" fill=\"none\"/>\n",
+              "    <path d=\"M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z\"/><path d=\"M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z\"/>\n",
+              "  </svg>\n",
+              "      </button>\n",
+              "      \n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      flex-wrap:wrap;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "      <script>\n",
+              "        const buttonEl =\n",
+              "          document.querySelector('#df-13168d5b-af1f-4f55-bcd5-8609202aeb4f button.colab-df-convert');\n",
+              "        buttonEl.style.display =\n",
+              "          google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "        async function convertToInteractive(key) {\n",
+              "          const element = document.querySelector('#df-13168d5b-af1f-4f55-bcd5-8609202aeb4f');\n",
+              "          const dataTable =\n",
+              "            await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                     [key], {});\n",
+              "          if (!dataTable) return;\n",
+              "\n",
+              "          const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "            '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "            + ' to learn more about interactive tables.';\n",
+              "          element.innerHTML = '';\n",
+              "          dataTable['output_type'] = 'display_data';\n",
+              "          await google.colab.output.renderOutput(dataTable, element);\n",
+              "          const docLink = document.createElement('div');\n",
+              "          docLink.innerHTML = docLinkHtml;\n",
+              "          element.appendChild(docLink);\n",
+              "        }\n",
+              "      </script>\n",
+              "    </div>\n",
+              "  </div>\n",
+              "  "
+            ]
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### expand"
+      ],
+      "metadata": {
+        "id": "mkIDez0gQp5F"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Expand the information inside of every dict into their own column, each name contains a especific **prefix** given by the user"
+      ],
+      "metadata": {
+        "id": "mvU113p9QxE2"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "expand(*Column*, *prefix*)"
+      ],
+      "metadata": {
+        "id": "RwxW_WcHRFu7"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "un.expand(Driver,'Driver').head()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 270
+        },
+        "id": "CvDe2ADHJQeY",
+        "outputId": "93eec2e9-f461-43ad-86c5-33297a8375de"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "   Driver_driverId Driver_permanentNumber Driver_code  \\\n",
+              "0          leclerc                     16         LEC   \n",
+              "1            sainz                     55         SAI   \n",
+              "2         hamilton                     44         HAM   \n",
+              "3          russell                     63         RUS   \n",
+              "4  kevin_magnussen                     20         MAG   \n",
+              "\n",
+              "                                          Driver_url Driver_givenName  \\\n",
+              "0       http://en.wikipedia.org/wiki/Charles_Leclerc          Charles   \n",
+              "1      http://en.wikipedia.org/wiki/Carlos_Sainz_Jr.           Carlos   \n",
+              "2        http://en.wikipedia.org/wiki/Lewis_Hamilton            Lewis   \n",
+              "3  http://en.wikipedia.org/wiki/George_Russell_%2...           George   \n",
+              "4       http://en.wikipedia.org/wiki/Kevin_Magnussen            Kevin   \n",
+              "\n",
+              "  Driver_familyName Driver_dateOfBirth Driver_nationality  \n",
+              "0           Leclerc         1997-10-16         Monegasque  \n",
+              "1             Sainz         1994-09-01            Spanish  \n",
+              "2          Hamilton         1985-01-07            British  \n",
+              "3           Russell         1998-02-15            British  \n",
+              "4         Magnussen         1992-10-05             Danish  "
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-fa3f3713-7ae0-4422-b465-4ce3084c2c22\">\n",
+              "    <div class=\"colab-df-container\">\n",
+              "      <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>Driver_driverId</th>\n",
+              "      <th>Driver_permanentNumber</th>\n",
+              "      <th>Driver_code</th>\n",
+              "      <th>Driver_url</th>\n",
+              "      <th>Driver_givenName</th>\n",
+              "      <th>Driver_familyName</th>\n",
+              "      <th>Driver_dateOfBirth</th>\n",
+              "      <th>Driver_nationality</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>leclerc</td>\n",
+              "      <td>16</td>\n",
+              "      <td>LEC</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Charles_Leclerc</td>\n",
+              "      <td>Charles</td>\n",
+              "      <td>Leclerc</td>\n",
+              "      <td>1997-10-16</td>\n",
+              "      <td>Monegasque</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>sainz</td>\n",
+              "      <td>55</td>\n",
+              "      <td>SAI</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Carlos_Sainz_Jr.</td>\n",
+              "      <td>Carlos</td>\n",
+              "      <td>Sainz</td>\n",
+              "      <td>1994-09-01</td>\n",
+              "      <td>Spanish</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>hamilton</td>\n",
+              "      <td>44</td>\n",
+              "      <td>HAM</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Lewis_Hamilton</td>\n",
+              "      <td>Lewis</td>\n",
+              "      <td>Hamilton</td>\n",
+              "      <td>1985-01-07</td>\n",
+              "      <td>British</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>russell</td>\n",
+              "      <td>63</td>\n",
+              "      <td>RUS</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/George_Russell_%2...</td>\n",
+              "      <td>George</td>\n",
+              "      <td>Russell</td>\n",
+              "      <td>1998-02-15</td>\n",
+              "      <td>British</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>kevin_magnussen</td>\n",
+              "      <td>20</td>\n",
+              "      <td>MAG</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Kevin_Magnussen</td>\n",
+              "      <td>Kevin</td>\n",
+              "      <td>Magnussen</td>\n",
+              "      <td>1992-10-05</td>\n",
+              "      <td>Danish</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>\n",
+              "      <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-fa3f3713-7ae0-4422-b465-4ce3084c2c22')\"\n",
+              "              title=\"Convert this dataframe to an interactive table.\"\n",
+              "              style=\"display:none;\">\n",
+              "        \n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\"viewBox=\"0 0 24 24\"\n",
+              "       width=\"24px\">\n",
+              "    <path d=\"M0 0h24v24H0V0z\" fill=\"none\"/>\n",
+              "    <path d=\"M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z\"/><path d=\"M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z\"/>\n",
+              "  </svg>\n",
+              "      </button>\n",
+              "      \n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      flex-wrap:wrap;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "      <script>\n",
+              "        const buttonEl =\n",
+              "          document.querySelector('#df-fa3f3713-7ae0-4422-b465-4ce3084c2c22 button.colab-df-convert');\n",
+              "        buttonEl.style.display =\n",
+              "          google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "        async function convertToInteractive(key) {\n",
+              "          const element = document.querySelector('#df-fa3f3713-7ae0-4422-b465-4ce3084c2c22');\n",
+              "          const dataTable =\n",
+              "            await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                     [key], {});\n",
+              "          if (!dataTable) return;\n",
+              "\n",
+              "          const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "            '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "            + ' to learn more about interactive tables.';\n",
+              "          element.innerHTML = '';\n",
+              "          dataTable['output_type'] = 'display_data';\n",
+              "          await google.colab.output.renderOutput(dataTable, element);\n",
+              "          const docLink = document.createElement('div');\n",
+              "          docLink.innerHTML = docLinkHtml;\n",
+              "          element.appendChild(docLink);\n",
+              "        }\n",
+              "      </script>\n",
+              "    </div>\n",
+              "  </div>\n",
+              "  "
+            ]
+          },
+          "metadata": {},
+          "execution_count": 8
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## unravel"
+      ],
+      "metadata": {
+        "id": "NSTf7aotRRwb"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Return the data with every structured column gone by their expanded content"
+      ],
+      "metadata": {
+        "id": "BILsNFOCRZ4i"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "unravel(*DataFrame*)\n",
+        "\n",
+        "**WARNING**: \\\n",
+        "unravel function executes the change directly in the original dataframe"
+      ],
+      "metadata": {
+        "id": "_Zi8zBOKRqmt"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "un.unravel(data).head()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 300
+        },
+        "id": "0g8cYSBbHuIM",
+        "outputId": "49de2432-7432-4423-9239-694f1ebd094b"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "  number position positionText points  Driver_driverId Driver_permanentNumber  \\\n",
+              "0     16        1            1     26          leclerc                     16   \n",
+              "1     55        2            2     18            sainz                     55   \n",
+              "2     44        3            3     15         hamilton                     44   \n",
+              "3     63        4            4     12          russell                     63   \n",
+              "4     20        5            5     10  kevin_magnussen                     20   \n",
+              "\n",
+              "  Driver_code                                         Driver_url  \\\n",
+              "0         LEC       http://en.wikipedia.org/wiki/Charles_Leclerc   \n",
+              "1         SAI      http://en.wikipedia.org/wiki/Carlos_Sainz_Jr.   \n",
+              "2         HAM        http://en.wikipedia.org/wiki/Lewis_Hamilton   \n",
+              "3         RUS  http://en.wikipedia.org/wiki/George_Russell_%2...   \n",
+              "4         MAG       http://en.wikipedia.org/wiki/Kevin_Magnussen   \n",
+              "\n",
+              "  Driver_givenName Driver_familyName  ... grid laps    status Time_millis  \\\n",
+              "0          Charles           Leclerc  ...    1   57  Finished     5853584   \n",
+              "1           Carlos             Sainz  ...    3   57  Finished     5859182   \n",
+              "2            Lewis          Hamilton  ...    5   57  Finished     5863259   \n",
+              "3           George           Russell  ...    9   57  Finished     5864795   \n",
+              "4            Kevin         Magnussen  ...    7   57  Finished     5868338   \n",
+              "\n",
+              "     Time_time FastestLap_rank FastestLap_lap FastestLap_Time_time  \\\n",
+              "0  1:37:33.584               1             51             1:34.570   \n",
+              "1       +5.598               3             52             1:35.740   \n",
+              "2       +9.675               5             53             1:36.228   \n",
+              "3      +11.211               6             56             1:36.302   \n",
+              "4      +14.754               8             53             1:36.623   \n",
+              "\n",
+              "  FastestLap_AverageSpeed_units FastestLap_AverageSpeed_speed  \n",
+              "0                           kph                       206.018  \n",
+              "1                           kph                       203.501  \n",
+              "2                           kph                       202.469  \n",
+              "3                           kph                       202.313  \n",
+              "4                           kph                       201.641  \n",
+              "\n",
+              "[5 rows x 26 columns]"
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-7f101e20-80f0-42da-81c1-0cab6287758e\">\n",
+              "    <div class=\"colab-df-container\">\n",
+              "      <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>number</th>\n",
+              "      <th>position</th>\n",
+              "      <th>positionText</th>\n",
+              "      <th>points</th>\n",
+              "      <th>Driver_driverId</th>\n",
+              "      <th>Driver_permanentNumber</th>\n",
+              "      <th>Driver_code</th>\n",
+              "      <th>Driver_url</th>\n",
+              "      <th>Driver_givenName</th>\n",
+              "      <th>Driver_familyName</th>\n",
+              "      <th>...</th>\n",
+              "      <th>grid</th>\n",
+              "      <th>laps</th>\n",
+              "      <th>status</th>\n",
+              "      <th>Time_millis</th>\n",
+              "      <th>Time_time</th>\n",
+              "      <th>FastestLap_rank</th>\n",
+              "      <th>FastestLap_lap</th>\n",
+              "      <th>FastestLap_Time_time</th>\n",
+              "      <th>FastestLap_AverageSpeed_units</th>\n",
+              "      <th>FastestLap_AverageSpeed_speed</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>16</td>\n",
+              "      <td>1</td>\n",
+              "      <td>1</td>\n",
+              "      <td>26</td>\n",
+              "      <td>leclerc</td>\n",
+              "      <td>16</td>\n",
+              "      <td>LEC</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Charles_Leclerc</td>\n",
+              "      <td>Charles</td>\n",
+              "      <td>Leclerc</td>\n",
+              "      <td>...</td>\n",
+              "      <td>1</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>5853584</td>\n",
+              "      <td>1:37:33.584</td>\n",
+              "      <td>1</td>\n",
+              "      <td>51</td>\n",
+              "      <td>1:34.570</td>\n",
+              "      <td>kph</td>\n",
+              "      <td>206.018</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>55</td>\n",
+              "      <td>2</td>\n",
+              "      <td>2</td>\n",
+              "      <td>18</td>\n",
+              "      <td>sainz</td>\n",
+              "      <td>55</td>\n",
+              "      <td>SAI</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Carlos_Sainz_Jr.</td>\n",
+              "      <td>Carlos</td>\n",
+              "      <td>Sainz</td>\n",
+              "      <td>...</td>\n",
+              "      <td>3</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>5859182</td>\n",
+              "      <td>+5.598</td>\n",
+              "      <td>3</td>\n",
+              "      <td>52</td>\n",
+              "      <td>1:35.740</td>\n",
+              "      <td>kph</td>\n",
+              "      <td>203.501</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>44</td>\n",
+              "      <td>3</td>\n",
+              "      <td>3</td>\n",
+              "      <td>15</td>\n",
+              "      <td>hamilton</td>\n",
+              "      <td>44</td>\n",
+              "      <td>HAM</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Lewis_Hamilton</td>\n",
+              "      <td>Lewis</td>\n",
+              "      <td>Hamilton</td>\n",
+              "      <td>...</td>\n",
+              "      <td>5</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>5863259</td>\n",
+              "      <td>+9.675</td>\n",
+              "      <td>5</td>\n",
+              "      <td>53</td>\n",
+              "      <td>1:36.228</td>\n",
+              "      <td>kph</td>\n",
+              "      <td>202.469</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>63</td>\n",
+              "      <td>4</td>\n",
+              "      <td>4</td>\n",
+              "      <td>12</td>\n",
+              "      <td>russell</td>\n",
+              "      <td>63</td>\n",
+              "      <td>RUS</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/George_Russell_%2...</td>\n",
+              "      <td>George</td>\n",
+              "      <td>Russell</td>\n",
+              "      <td>...</td>\n",
+              "      <td>9</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>5864795</td>\n",
+              "      <td>+11.211</td>\n",
+              "      <td>6</td>\n",
+              "      <td>56</td>\n",
+              "      <td>1:36.302</td>\n",
+              "      <td>kph</td>\n",
+              "      <td>202.313</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>20</td>\n",
+              "      <td>5</td>\n",
+              "      <td>5</td>\n",
+              "      <td>10</td>\n",
+              "      <td>kevin_magnussen</td>\n",
+              "      <td>20</td>\n",
+              "      <td>MAG</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Kevin_Magnussen</td>\n",
+              "      <td>Kevin</td>\n",
+              "      <td>Magnussen</td>\n",
+              "      <td>...</td>\n",
+              "      <td>7</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>5868338</td>\n",
+              "      <td>+14.754</td>\n",
+              "      <td>8</td>\n",
+              "      <td>53</td>\n",
+              "      <td>1:36.623</td>\n",
+              "      <td>kph</td>\n",
+              "      <td>201.641</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "<p>5 rows × 26 columns</p>\n",
+              "</div>\n",
+              "      <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-7f101e20-80f0-42da-81c1-0cab6287758e')\"\n",
+              "              title=\"Convert this dataframe to an interactive table.\"\n",
+              "              style=\"display:none;\">\n",
+              "        \n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\"viewBox=\"0 0 24 24\"\n",
+              "       width=\"24px\">\n",
+              "    <path d=\"M0 0h24v24H0V0z\" fill=\"none\"/>\n",
+              "    <path d=\"M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z\"/><path d=\"M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z\"/>\n",
+              "  </svg>\n",
+              "      </button>\n",
+              "      \n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      flex-wrap:wrap;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "      <script>\n",
+              "        const buttonEl =\n",
+              "          document.querySelector('#df-7f101e20-80f0-42da-81c1-0cab6287758e button.colab-df-convert');\n",
+              "        buttonEl.style.display =\n",
+              "          google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "        async function convertToInteractive(key) {\n",
+              "          const element = document.querySelector('#df-7f101e20-80f0-42da-81c1-0cab6287758e');\n",
+              "          const dataTable =\n",
+              "            await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                     [key], {});\n",
+              "          if (!dataTable) return;\n",
+              "\n",
+              "          const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "            '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "            + ' to learn more about interactive tables.';\n",
+              "          element.innerHTML = '';\n",
+              "          dataTable['output_type'] = 'display_data';\n",
+              "          await google.colab.output.renderOutput(dataTable, element);\n",
+              "          const docLink = document.createElement('div');\n",
+              "          docLink.innerHTML = docLinkHtml;\n",
+              "          element.appendChild(docLink);\n",
+              "        }\n",
+              "      </script>\n",
+              "    </div>\n",
+              "  </div>\n",
+              "  "
+            ]
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data.head()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 300
+        },
+        "id": "v_WCEf3iPSmX",
+        "outputId": "6be910c1-6484-4a6c-f60d-1ae0e54eeca6"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "  number position positionText points  Driver_driverId Driver_permanentNumber  \\\n",
+              "0     16        1            1     26          leclerc                     16   \n",
+              "1     55        2            2     18            sainz                     55   \n",
+              "2     44        3            3     15         hamilton                     44   \n",
+              "3     63        4            4     12          russell                     63   \n",
+              "4     20        5            5     10  kevin_magnussen                     20   \n",
+              "\n",
+              "  Driver_code                                         Driver_url  \\\n",
+              "0         LEC       http://en.wikipedia.org/wiki/Charles_Leclerc   \n",
+              "1         SAI      http://en.wikipedia.org/wiki/Carlos_Sainz_Jr.   \n",
+              "2         HAM        http://en.wikipedia.org/wiki/Lewis_Hamilton   \n",
+              "3         RUS  http://en.wikipedia.org/wiki/George_Russell_%2...   \n",
+              "4         MAG       http://en.wikipedia.org/wiki/Kevin_Magnussen   \n",
+              "\n",
+              "  Driver_givenName Driver_familyName  ... grid laps    status Time_millis  \\\n",
+              "0          Charles           Leclerc  ...    1   57  Finished     5853584   \n",
+              "1           Carlos             Sainz  ...    3   57  Finished     5859182   \n",
+              "2            Lewis          Hamilton  ...    5   57  Finished     5863259   \n",
+              "3           George           Russell  ...    9   57  Finished     5864795   \n",
+              "4            Kevin         Magnussen  ...    7   57  Finished     5868338   \n",
+              "\n",
+              "     Time_time FastestLap_rank FastestLap_lap FastestLap_Time_time  \\\n",
+              "0  1:37:33.584               1             51             1:34.570   \n",
+              "1       +5.598               3             52             1:35.740   \n",
+              "2       +9.675               5             53             1:36.228   \n",
+              "3      +11.211               6             56             1:36.302   \n",
+              "4      +14.754               8             53             1:36.623   \n",
+              "\n",
+              "  FastestLap_AverageSpeed_units FastestLap_AverageSpeed_speed  \n",
+              "0                           kph                       206.018  \n",
+              "1                           kph                       203.501  \n",
+              "2                           kph                       202.469  \n",
+              "3                           kph                       202.313  \n",
+              "4                           kph                       201.641  \n",
+              "\n",
+              "[5 rows x 26 columns]"
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-9a241493-59c8-4c72-a325-e501949bd6e4\">\n",
+              "    <div class=\"colab-df-container\">\n",
+              "      <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>number</th>\n",
+              "      <th>position</th>\n",
+              "      <th>positionText</th>\n",
+              "      <th>points</th>\n",
+              "      <th>Driver_driverId</th>\n",
+              "      <th>Driver_permanentNumber</th>\n",
+              "      <th>Driver_code</th>\n",
+              "      <th>Driver_url</th>\n",
+              "      <th>Driver_givenName</th>\n",
+              "      <th>Driver_familyName</th>\n",
+              "      <th>...</th>\n",
+              "      <th>grid</th>\n",
+              "      <th>laps</th>\n",
+              "      <th>status</th>\n",
+              "      <th>Time_millis</th>\n",
+              "      <th>Time_time</th>\n",
+              "      <th>FastestLap_rank</th>\n",
+              "      <th>FastestLap_lap</th>\n",
+              "      <th>FastestLap_Time_time</th>\n",
+              "      <th>FastestLap_AverageSpeed_units</th>\n",
+              "      <th>FastestLap_AverageSpeed_speed</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>16</td>\n",
+              "      <td>1</td>\n",
+              "      <td>1</td>\n",
+              "      <td>26</td>\n",
+              "      <td>leclerc</td>\n",
+              "      <td>16</td>\n",
+              "      <td>LEC</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Charles_Leclerc</td>\n",
+              "      <td>Charles</td>\n",
+              "      <td>Leclerc</td>\n",
+              "      <td>...</td>\n",
+              "      <td>1</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>5853584</td>\n",
+              "      <td>1:37:33.584</td>\n",
+              "      <td>1</td>\n",
+              "      <td>51</td>\n",
+              "      <td>1:34.570</td>\n",
+              "      <td>kph</td>\n",
+              "      <td>206.018</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>55</td>\n",
+              "      <td>2</td>\n",
+              "      <td>2</td>\n",
+              "      <td>18</td>\n",
+              "      <td>sainz</td>\n",
+              "      <td>55</td>\n",
+              "      <td>SAI</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Carlos_Sainz_Jr.</td>\n",
+              "      <td>Carlos</td>\n",
+              "      <td>Sainz</td>\n",
+              "      <td>...</td>\n",
+              "      <td>3</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>5859182</td>\n",
+              "      <td>+5.598</td>\n",
+              "      <td>3</td>\n",
+              "      <td>52</td>\n",
+              "      <td>1:35.740</td>\n",
+              "      <td>kph</td>\n",
+              "      <td>203.501</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>44</td>\n",
+              "      <td>3</td>\n",
+              "      <td>3</td>\n",
+              "      <td>15</td>\n",
+              "      <td>hamilton</td>\n",
+              "      <td>44</td>\n",
+              "      <td>HAM</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Lewis_Hamilton</td>\n",
+              "      <td>Lewis</td>\n",
+              "      <td>Hamilton</td>\n",
+              "      <td>...</td>\n",
+              "      <td>5</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>5863259</td>\n",
+              "      <td>+9.675</td>\n",
+              "      <td>5</td>\n",
+              "      <td>53</td>\n",
+              "      <td>1:36.228</td>\n",
+              "      <td>kph</td>\n",
+              "      <td>202.469</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>63</td>\n",
+              "      <td>4</td>\n",
+              "      <td>4</td>\n",
+              "      <td>12</td>\n",
+              "      <td>russell</td>\n",
+              "      <td>63</td>\n",
+              "      <td>RUS</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/George_Russell_%2...</td>\n",
+              "      <td>George</td>\n",
+              "      <td>Russell</td>\n",
+              "      <td>...</td>\n",
+              "      <td>9</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>5864795</td>\n",
+              "      <td>+11.211</td>\n",
+              "      <td>6</td>\n",
+              "      <td>56</td>\n",
+              "      <td>1:36.302</td>\n",
+              "      <td>kph</td>\n",
+              "      <td>202.313</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>20</td>\n",
+              "      <td>5</td>\n",
+              "      <td>5</td>\n",
+              "      <td>10</td>\n",
+              "      <td>kevin_magnussen</td>\n",
+              "      <td>20</td>\n",
+              "      <td>MAG</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Kevin_Magnussen</td>\n",
+              "      <td>Kevin</td>\n",
+              "      <td>Magnussen</td>\n",
+              "      <td>...</td>\n",
+              "      <td>7</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>5868338</td>\n",
+              "      <td>+14.754</td>\n",
+              "      <td>8</td>\n",
+              "      <td>53</td>\n",
+              "      <td>1:36.623</td>\n",
+              "      <td>kph</td>\n",
+              "      <td>201.641</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "<p>5 rows × 26 columns</p>\n",
+              "</div>\n",
+              "      <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-9a241493-59c8-4c72-a325-e501949bd6e4')\"\n",
+              "              title=\"Convert this dataframe to an interactive table.\"\n",
+              "              style=\"display:none;\">\n",
+              "        \n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\"viewBox=\"0 0 24 24\"\n",
+              "       width=\"24px\">\n",
+              "    <path d=\"M0 0h24v24H0V0z\" fill=\"none\"/>\n",
+              "    <path d=\"M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z\"/><path d=\"M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z\"/>\n",
+              "  </svg>\n",
+              "      </button>\n",
+              "      \n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      flex-wrap:wrap;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "      <script>\n",
+              "        const buttonEl =\n",
+              "          document.querySelector('#df-9a241493-59c8-4c72-a325-e501949bd6e4 button.colab-df-convert');\n",
+              "        buttonEl.style.display =\n",
+              "          google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "        async function convertToInteractive(key) {\n",
+              "          const element = document.querySelector('#df-9a241493-59c8-4c72-a325-e501949bd6e4');\n",
+              "          const dataTable =\n",
+              "            await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                     [key], {});\n",
+              "          if (!dataTable) return;\n",
+              "\n",
+              "          const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "            '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "            + ' to learn more about interactive tables.';\n",
+              "          element.innerHTML = '';\n",
+              "          dataTable['output_type'] = 'display_data';\n",
+              "          await google.colab.output.renderOutput(dataTable, element);\n",
+              "          const docLink = document.createElement('div');\n",
+              "          docLink.innerHTML = docLinkHtml;\n",
+              "          element.appendChild(docLink);\n",
+              "        }\n",
+              "      </script>\n",
+              "    </div>\n",
+              "  </div>\n",
+              "  "
+            ]
+          },
+          "metadata": {},
+          "execution_count": 10
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "If for any reason we need to have the original dataFrame we have to define it again"
+      ],
+      "metadata": {
+        "id": "PT4yYscmR4gh"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "url='http://ergast.com/api/f1/2022/results.json'\n",
+        "data=pd.DataFrame(r.get(url).json()['MRData']['RaceTable']['Races'][0]['Results'])\n",
+        "data.head()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 337
+        },
+        "id": "bgp_7wn3K1z5",
+        "outputId": "84dd3453-0ec9-44de-a121-3ac0461c9e75"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "  number position positionText points  \\\n",
+              "0     16        1            1     26   \n",
+              "1     55        2            2     18   \n",
+              "2     44        3            3     15   \n",
+              "3     63        4            4     12   \n",
+              "4     20        5            5     10   \n",
+              "\n",
+              "                                              Driver  \\\n",
+              "0  {'driverId': 'leclerc', 'permanentNumber': '16...   \n",
+              "1  {'driverId': 'sainz', 'permanentNumber': '55',...   \n",
+              "2  {'driverId': 'hamilton', 'permanentNumber': '4...   \n",
+              "3  {'driverId': 'russell', 'permanentNumber': '63...   \n",
+              "4  {'driverId': 'kevin_magnussen', 'permanentNumb...   \n",
+              "\n",
+              "                                         Constructor grid laps    status  \\\n",
+              "0  {'constructorId': 'ferrari', 'url': 'http://en...    1   57  Finished   \n",
+              "1  {'constructorId': 'ferrari', 'url': 'http://en...    3   57  Finished   \n",
+              "2  {'constructorId': 'mercedes', 'url': 'http://e...    5   57  Finished   \n",
+              "3  {'constructorId': 'mercedes', 'url': 'http://e...    9   57  Finished   \n",
+              "4  {'constructorId': 'haas', 'url': 'http://en.wi...    7   57  Finished   \n",
+              "\n",
+              "                                           Time  \\\n",
+              "0  {'millis': '5853584', 'time': '1:37:33.584'}   \n",
+              "1       {'millis': '5859182', 'time': '+5.598'}   \n",
+              "2       {'millis': '5863259', 'time': '+9.675'}   \n",
+              "3      {'millis': '5864795', 'time': '+11.211'}   \n",
+              "4      {'millis': '5868338', 'time': '+14.754'}   \n",
+              "\n",
+              "                                          FastestLap  \n",
+              "0  {'rank': '1', 'lap': '51', 'Time': {'time': '1...  \n",
+              "1  {'rank': '3', 'lap': '52', 'Time': {'time': '1...  \n",
+              "2  {'rank': '5', 'lap': '53', 'Time': {'time': '1...  \n",
+              "3  {'rank': '6', 'lap': '56', 'Time': {'time': '1...  \n",
+              "4  {'rank': '8', 'lap': '53', 'Time': {'time': '1...  "
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-ea23b697-8b7a-4fcc-9f5e-bd1025f5bed7\">\n",
+              "    <div class=\"colab-df-container\">\n",
+              "      <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>number</th>\n",
+              "      <th>position</th>\n",
+              "      <th>positionText</th>\n",
+              "      <th>points</th>\n",
+              "      <th>Driver</th>\n",
+              "      <th>Constructor</th>\n",
+              "      <th>grid</th>\n",
+              "      <th>laps</th>\n",
+              "      <th>status</th>\n",
+              "      <th>Time</th>\n",
+              "      <th>FastestLap</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>16</td>\n",
+              "      <td>1</td>\n",
+              "      <td>1</td>\n",
+              "      <td>26</td>\n",
+              "      <td>{'driverId': 'leclerc', 'permanentNumber': '16...</td>\n",
+              "      <td>{'constructorId': 'ferrari', 'url': 'http://en...</td>\n",
+              "      <td>1</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>{'millis': '5853584', 'time': '1:37:33.584'}</td>\n",
+              "      <td>{'rank': '1', 'lap': '51', 'Time': {'time': '1...</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>55</td>\n",
+              "      <td>2</td>\n",
+              "      <td>2</td>\n",
+              "      <td>18</td>\n",
+              "      <td>{'driverId': 'sainz', 'permanentNumber': '55',...</td>\n",
+              "      <td>{'constructorId': 'ferrari', 'url': 'http://en...</td>\n",
+              "      <td>3</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>{'millis': '5859182', 'time': '+5.598'}</td>\n",
+              "      <td>{'rank': '3', 'lap': '52', 'Time': {'time': '1...</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>44</td>\n",
+              "      <td>3</td>\n",
+              "      <td>3</td>\n",
+              "      <td>15</td>\n",
+              "      <td>{'driverId': 'hamilton', 'permanentNumber': '4...</td>\n",
+              "      <td>{'constructorId': 'mercedes', 'url': 'http://e...</td>\n",
+              "      <td>5</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>{'millis': '5863259', 'time': '+9.675'}</td>\n",
+              "      <td>{'rank': '5', 'lap': '53', 'Time': {'time': '1...</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>63</td>\n",
+              "      <td>4</td>\n",
+              "      <td>4</td>\n",
+              "      <td>12</td>\n",
+              "      <td>{'driverId': 'russell', 'permanentNumber': '63...</td>\n",
+              "      <td>{'constructorId': 'mercedes', 'url': 'http://e...</td>\n",
+              "      <td>9</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>{'millis': '5864795', 'time': '+11.211'}</td>\n",
+              "      <td>{'rank': '6', 'lap': '56', 'Time': {'time': '1...</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>20</td>\n",
+              "      <td>5</td>\n",
+              "      <td>5</td>\n",
+              "      <td>10</td>\n",
+              "      <td>{'driverId': 'kevin_magnussen', 'permanentNumb...</td>\n",
+              "      <td>{'constructorId': 'haas', 'url': 'http://en.wi...</td>\n",
+              "      <td>7</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Finished</td>\n",
+              "      <td>{'millis': '5868338', 'time': '+14.754'}</td>\n",
+              "      <td>{'rank': '8', 'lap': '53', 'Time': {'time': '1...</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>\n",
+              "      <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-ea23b697-8b7a-4fcc-9f5e-bd1025f5bed7')\"\n",
+              "              title=\"Convert this dataframe to an interactive table.\"\n",
+              "              style=\"display:none;\">\n",
+              "        \n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\"viewBox=\"0 0 24 24\"\n",
+              "       width=\"24px\">\n",
+              "    <path d=\"M0 0h24v24H0V0z\" fill=\"none\"/>\n",
+              "    <path d=\"M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z\"/><path d=\"M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z\"/>\n",
+              "  </svg>\n",
+              "      </button>\n",
+              "      \n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      flex-wrap:wrap;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "      <script>\n",
+              "        const buttonEl =\n",
+              "          document.querySelector('#df-ea23b697-8b7a-4fcc-9f5e-bd1025f5bed7 button.colab-df-convert');\n",
+              "        buttonEl.style.display =\n",
+              "          google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "        async function convertToInteractive(key) {\n",
+              "          const element = document.querySelector('#df-ea23b697-8b7a-4fcc-9f5e-bd1025f5bed7');\n",
+              "          const dataTable =\n",
+              "            await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                     [key], {});\n",
+              "          if (!dataTable) return;\n",
+              "\n",
+              "          const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "            '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "            + ' to learn more about interactive tables.';\n",
+              "          element.innerHTML = '';\n",
+              "          dataTable['output_type'] = 'display_data';\n",
+              "          await google.colab.output.renderOutput(dataTable, element);\n",
+              "          const docLink = document.createElement('div');\n",
+              "          docLink.innerHTML = docLinkHtml;\n",
+              "          element.appendChild(docLink);\n",
+              "        }\n",
+              "      </script>\n",
+              "    </div>\n",
+              "  </div>\n",
+              "  "
+            ]
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## first_dict"
+      ],
+      "metadata": {
+        "id": "aBBe2eH5SBtV"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Retrieve the information from the first dictionary of the structured column"
+      ],
+      "metadata": {
+        "id": "cqriaPanQBPA"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "We called the Driver column just to refresh our memory"
+      ],
+      "metadata": {
+        "id": "qr5UAN-MSFWu"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "Driver.head()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "BgdyJTrJLYtp",
+        "outputId": "ad6abb82-d8a0-4850-c087-409025762ec4"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0    {'driverId': 'leclerc', 'permanentNumber': '16...\n",
+              "1    {'driverId': 'sainz', 'permanentNumber': '55',...\n",
+              "2    {'driverId': 'hamilton', 'permanentNumber': '4...\n",
+              "3    {'driverId': 'russell', 'permanentNumber': '63...\n",
+              "4    {'driverId': 'kevin_magnussen', 'permanentNumb...\n",
+              "Name: Driver, dtype: object"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "first_dict(*Column*)"
+      ],
+      "metadata": {
+        "id": "NeRWy2sKSctC"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "fdict=un.first_dict(Driver)\n",
+        "fdict"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "7ZewYfAHQJEk",
+        "outputId": "d2962cfb-2a74-4b67-d099-008be87a5b69"
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{'driverId': 'leclerc',\n",
+              " 'permanentNumber': '16',\n",
+              " 'code': 'LEC',\n",
+              " 'url': 'http://en.wikipedia.org/wiki/Charles_Leclerc',\n",
+              " 'givenName': 'Charles',\n",
+              " 'familyName': 'Leclerc',\n",
+              " 'dateOfBirth': '1997-10-16',\n",
+              " 'nationality': 'Monegasque'}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 13
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## is_list"
+      ],
+      "metadata": {
+        "id": "KAdBD7paSj82"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "is_list(*object*)"
+      ],
+      "metadata": {
+        "id": "y82OqTpJSnUs"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "un.is_list(fdict)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "RXBch9rdLBfs",
+        "outputId": "75d7393f-c4dd-4f25-fb2b-6b82d3131d51"
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "False"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## is_dict"
+      ],
+      "metadata": {
+        "id": "O3a7X8ttSrGA"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "is_dict(*Object*)"
+      ],
+      "metadata": {
+        "id": "XZ3zj3niSwEs"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "un.is_dict(fdict)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "PEMl-HbmLOVv",
+        "outputId": "6829c2f8-31bf-4c58-f9e5-a103333fab97"
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "True"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 15
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## contains_dict"
+      ],
+      "metadata": {
+        "id": "5_3PHhlDTR1I"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Return a list with Boolean values which indicates whether a Column contains a dict or not"
+      ],
+      "metadata": {
+        "id": "Ntk-RqUOTUjR"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "un.contains_dict(Driver)[0:9]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "87dgzj-XLSak",
+        "outputId": "f994f320-bb7f-4985-ed8f-024ae3adcd71"
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[True, True, True, True, True, True, True, True, True]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 16
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "un.contains_dict(data['number'])[0:9]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_vcS55M-Loyk",
+        "outputId": "1cbfc8eb-d2c9-46a7-d210-c4ca4f6c4e6c"
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[False, False, False, False, False, False, False, False, False]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 17
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## constains_list"
+      ],
+      "metadata": {
+        "id": "9VYZwnaaWRBw"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Return a list with Boolean values which indicates whether a Column contains a list or not"
+      ],
+      "metadata": {
+        "id": "g8Pgpv3sWUVg"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "un.contains_list(Driver)[0:9]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1x75thFALzu6",
+        "outputId": "396611c6-90f7-4a5f-e8cd-2e15f88ca699"
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[False, False, False, False, False, False, False, False, False]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 18
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## dataframe_res"
+      ],
+      "metadata": {
+        "id": "5jcjUUQlWemX"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Return a new dataframe wich contains data from DataFrame1 and DataFrame2 in an unique DataFrame"
+      ],
+      "metadata": {
+        "id": "ud8vSlMNWjR3"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "dataframe_res(*DataFrame1*, *position_insert*, *DataFrame2*)"
+      ],
+      "metadata": {
+        "id": "Fen-zyo2XOSp"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "First, we define an auxliar DataFrame as follows:"
+      ],
+      "metadata": {
+        "id": "Ub_swnk1WwE-"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data_aux=data[['number','Driver']]\n",
+        "data_aux.head()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 206
+        },
+        "id": "q74vrSYvMEOr",
+        "outputId": "429362bd-b061-4586-aa98-66926966c433"
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "  number                                             Driver\n",
+              "0     16  {'driverId': 'leclerc', 'permanentNumber': '16...\n",
+              "1     55  {'driverId': 'sainz', 'permanentNumber': '55',...\n",
+              "2     44  {'driverId': 'hamilton', 'permanentNumber': '4...\n",
+              "3     63  {'driverId': 'russell', 'permanentNumber': '63...\n",
+              "4     20  {'driverId': 'kevin_magnussen', 'permanentNumb..."
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-d7669657-03f3-4eaf-b557-93bff4901ce7\">\n",
+              "    <div class=\"colab-df-container\">\n",
+              "      <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>number</th>\n",
+              "      <th>Driver</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>16</td>\n",
+              "      <td>{'driverId': 'leclerc', 'permanentNumber': '16...</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>55</td>\n",
+              "      <td>{'driverId': 'sainz', 'permanentNumber': '55',...</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>44</td>\n",
+              "      <td>{'driverId': 'hamilton', 'permanentNumber': '4...</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>63</td>\n",
+              "      <td>{'driverId': 'russell', 'permanentNumber': '63...</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>20</td>\n",
+              "      <td>{'driverId': 'kevin_magnussen', 'permanentNumb...</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>\n",
+              "      <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-d7669657-03f3-4eaf-b557-93bff4901ce7')\"\n",
+              "              title=\"Convert this dataframe to an interactive table.\"\n",
+              "              style=\"display:none;\">\n",
+              "        \n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\"viewBox=\"0 0 24 24\"\n",
+              "       width=\"24px\">\n",
+              "    <path d=\"M0 0h24v24H0V0z\" fill=\"none\"/>\n",
+              "    <path d=\"M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z\"/><path d=\"M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z\"/>\n",
+              "  </svg>\n",
+              "      </button>\n",
+              "      \n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      flex-wrap:wrap;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "      <script>\n",
+              "        const buttonEl =\n",
+              "          document.querySelector('#df-d7669657-03f3-4eaf-b557-93bff4901ce7 button.colab-df-convert');\n",
+              "        buttonEl.style.display =\n",
+              "          google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "        async function convertToInteractive(key) {\n",
+              "          const element = document.querySelector('#df-d7669657-03f3-4eaf-b557-93bff4901ce7');\n",
+              "          const dataTable =\n",
+              "            await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                     [key], {});\n",
+              "          if (!dataTable) return;\n",
+              "\n",
+              "          const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "            '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "            + ' to learn more about interactive tables.';\n",
+              "          element.innerHTML = '';\n",
+              "          dataTable['output_type'] = 'display_data';\n",
+              "          await google.colab.output.renderOutput(dataTable, element);\n",
+              "          const docLink = document.createElement('div');\n",
+              "          docLink.innerHTML = docLinkHtml;\n",
+              "          element.appendChild(docLink);\n",
+              "        }\n",
+              "      </script>\n",
+              "    </div>\n",
+              "  </div>\n",
+              "  "
+            ]
+          },
+          "metadata": {},
+          "execution_count": 19
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "We got the position of were the *Driver* column is located"
+      ],
+      "metadata": {
+        "id": "tB3AWFViW39A"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data_aux.columns.get_loc('Driver')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "xf7vJ7riM2Z8",
+        "outputId": "e34056a1-4813-4a5a-8fd7-dce457026698"
+      },
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "1"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 20
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "We define a new dataframe with all the data from Driver column after expand_noKey function"
+      ],
+      "metadata": {
+        "id": "Jgx6tR1VW_8R"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data_insert=un.expand_noKey(Driver)\n",
+        "data_insert.head()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 206
+        },
+        "id": "dyvCZB9dMeyz",
+        "outputId": "eca900fd-4e36-4e5f-8c12-89264feff8ff"
+      },
+      "execution_count": 22,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "          driverId permanentNumber code  \\\n",
+              "0          leclerc              16  LEC   \n",
+              "1            sainz              55  SAI   \n",
+              "2         hamilton              44  HAM   \n",
+              "3          russell              63  RUS   \n",
+              "4  kevin_magnussen              20  MAG   \n",
+              "\n",
+              "                                                 url givenName familyName  \\\n",
+              "0       http://en.wikipedia.org/wiki/Charles_Leclerc   Charles    Leclerc   \n",
+              "1      http://en.wikipedia.org/wiki/Carlos_Sainz_Jr.    Carlos      Sainz   \n",
+              "2        http://en.wikipedia.org/wiki/Lewis_Hamilton     Lewis   Hamilton   \n",
+              "3  http://en.wikipedia.org/wiki/George_Russell_%2...    George    Russell   \n",
+              "4       http://en.wikipedia.org/wiki/Kevin_Magnussen     Kevin  Magnussen   \n",
+              "\n",
+              "  dateOfBirth nationality  \n",
+              "0  1997-10-16  Monegasque  \n",
+              "1  1994-09-01     Spanish  \n",
+              "2  1985-01-07     British  \n",
+              "3  1998-02-15     British  \n",
+              "4  1992-10-05      Danish  "
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-c2e150ef-ea73-4ff3-9add-885755bb0dd5\">\n",
+              "    <div class=\"colab-df-container\">\n",
+              "      <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>driverId</th>\n",
+              "      <th>permanentNumber</th>\n",
+              "      <th>code</th>\n",
+              "      <th>url</th>\n",
+              "      <th>givenName</th>\n",
+              "      <th>familyName</th>\n",
+              "      <th>dateOfBirth</th>\n",
+              "      <th>nationality</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>leclerc</td>\n",
+              "      <td>16</td>\n",
+              "      <td>LEC</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Charles_Leclerc</td>\n",
+              "      <td>Charles</td>\n",
+              "      <td>Leclerc</td>\n",
+              "      <td>1997-10-16</td>\n",
+              "      <td>Monegasque</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>sainz</td>\n",
+              "      <td>55</td>\n",
+              "      <td>SAI</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Carlos_Sainz_Jr.</td>\n",
+              "      <td>Carlos</td>\n",
+              "      <td>Sainz</td>\n",
+              "      <td>1994-09-01</td>\n",
+              "      <td>Spanish</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>hamilton</td>\n",
+              "      <td>44</td>\n",
+              "      <td>HAM</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Lewis_Hamilton</td>\n",
+              "      <td>Lewis</td>\n",
+              "      <td>Hamilton</td>\n",
+              "      <td>1985-01-07</td>\n",
+              "      <td>British</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>russell</td>\n",
+              "      <td>63</td>\n",
+              "      <td>RUS</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/George_Russell_%2...</td>\n",
+              "      <td>George</td>\n",
+              "      <td>Russell</td>\n",
+              "      <td>1998-02-15</td>\n",
+              "      <td>British</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>kevin_magnussen</td>\n",
+              "      <td>20</td>\n",
+              "      <td>MAG</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Kevin_Magnussen</td>\n",
+              "      <td>Kevin</td>\n",
+              "      <td>Magnussen</td>\n",
+              "      <td>1992-10-05</td>\n",
+              "      <td>Danish</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>\n",
+              "      <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-c2e150ef-ea73-4ff3-9add-885755bb0dd5')\"\n",
+              "              title=\"Convert this dataframe to an interactive table.\"\n",
+              "              style=\"display:none;\">\n",
+              "        \n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\"viewBox=\"0 0 24 24\"\n",
+              "       width=\"24px\">\n",
+              "    <path d=\"M0 0h24v24H0V0z\" fill=\"none\"/>\n",
+              "    <path d=\"M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z\"/><path d=\"M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z\"/>\n",
+              "  </svg>\n",
+              "      </button>\n",
+              "      \n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      flex-wrap:wrap;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "      <script>\n",
+              "        const buttonEl =\n",
+              "          document.querySelector('#df-c2e150ef-ea73-4ff3-9add-885755bb0dd5 button.colab-df-convert');\n",
+              "        buttonEl.style.display =\n",
+              "          google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "        async function convertToInteractive(key) {\n",
+              "          const element = document.querySelector('#df-c2e150ef-ea73-4ff3-9add-885755bb0dd5');\n",
+              "          const dataTable =\n",
+              "            await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                     [key], {});\n",
+              "          if (!dataTable) return;\n",
+              "\n",
+              "          const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "            '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "            + ' to learn more about interactive tables.';\n",
+              "          element.innerHTML = '';\n",
+              "          dataTable['output_type'] = 'display_data';\n",
+              "          await google.colab.output.renderOutput(dataTable, element);\n",
+              "          const docLink = document.createElement('div');\n",
+              "          docLink.innerHTML = docLinkHtml;\n",
+              "          element.appendChild(docLink);\n",
+              "        }\n",
+              "      </script>\n",
+              "    </div>\n",
+              "  </div>\n",
+              "  "
+            ]
+          },
+          "metadata": {},
+          "execution_count": 22
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "un.dataframe_res(data_aux,2,data_insert).head()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 406
+        },
+        "id": "Ajlc5hOlL35l",
+        "outputId": "50261d08-60b4-4def-9569-211c6b0f9d3b"
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "  number                                             Driver         driverId  \\\n",
+              "0     16  {'driverId': 'leclerc', 'permanentNumber': '16...          leclerc   \n",
+              "1     55  {'driverId': 'sainz', 'permanentNumber': '55',...            sainz   \n",
+              "2     44  {'driverId': 'hamilton', 'permanentNumber': '4...         hamilton   \n",
+              "3     63  {'driverId': 'russell', 'permanentNumber': '63...          russell   \n",
+              "4     20  {'driverId': 'kevin_magnussen', 'permanentNumb...  kevin_magnussen   \n",
+              "\n",
+              "  permanentNumber code                                                url  \\\n",
+              "0              16  LEC       http://en.wikipedia.org/wiki/Charles_Leclerc   \n",
+              "1              55  SAI      http://en.wikipedia.org/wiki/Carlos_Sainz_Jr.   \n",
+              "2              44  HAM        http://en.wikipedia.org/wiki/Lewis_Hamilton   \n",
+              "3              63  RUS  http://en.wikipedia.org/wiki/George_Russell_%2...   \n",
+              "4              20  MAG       http://en.wikipedia.org/wiki/Kevin_Magnussen   \n",
+              "\n",
+              "  givenName familyName dateOfBirth nationality  \n",
+              "0   Charles    Leclerc  1997-10-16  Monegasque  \n",
+              "1    Carlos      Sainz  1994-09-01     Spanish  \n",
+              "2     Lewis   Hamilton  1985-01-07     British  \n",
+              "3    George    Russell  1998-02-15     British  \n",
+              "4     Kevin  Magnussen  1992-10-05      Danish  "
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-90eaf397-f606-456a-821a-b602f5aec1df\">\n",
+              "    <div class=\"colab-df-container\">\n",
+              "      <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>number</th>\n",
+              "      <th>Driver</th>\n",
+              "      <th>driverId</th>\n",
+              "      <th>permanentNumber</th>\n",
+              "      <th>code</th>\n",
+              "      <th>url</th>\n",
+              "      <th>givenName</th>\n",
+              "      <th>familyName</th>\n",
+              "      <th>dateOfBirth</th>\n",
+              "      <th>nationality</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>16</td>\n",
+              "      <td>{'driverId': 'leclerc', 'permanentNumber': '16...</td>\n",
+              "      <td>leclerc</td>\n",
+              "      <td>16</td>\n",
+              "      <td>LEC</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Charles_Leclerc</td>\n",
+              "      <td>Charles</td>\n",
+              "      <td>Leclerc</td>\n",
+              "      <td>1997-10-16</td>\n",
+              "      <td>Monegasque</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>55</td>\n",
+              "      <td>{'driverId': 'sainz', 'permanentNumber': '55',...</td>\n",
+              "      <td>sainz</td>\n",
+              "      <td>55</td>\n",
+              "      <td>SAI</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Carlos_Sainz_Jr.</td>\n",
+              "      <td>Carlos</td>\n",
+              "      <td>Sainz</td>\n",
+              "      <td>1994-09-01</td>\n",
+              "      <td>Spanish</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>44</td>\n",
+              "      <td>{'driverId': 'hamilton', 'permanentNumber': '4...</td>\n",
+              "      <td>hamilton</td>\n",
+              "      <td>44</td>\n",
+              "      <td>HAM</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Lewis_Hamilton</td>\n",
+              "      <td>Lewis</td>\n",
+              "      <td>Hamilton</td>\n",
+              "      <td>1985-01-07</td>\n",
+              "      <td>British</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>63</td>\n",
+              "      <td>{'driverId': 'russell', 'permanentNumber': '63...</td>\n",
+              "      <td>russell</td>\n",
+              "      <td>63</td>\n",
+              "      <td>RUS</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/George_Russell_%2...</td>\n",
+              "      <td>George</td>\n",
+              "      <td>Russell</td>\n",
+              "      <td>1998-02-15</td>\n",
+              "      <td>British</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>20</td>\n",
+              "      <td>{'driverId': 'kevin_magnussen', 'permanentNumb...</td>\n",
+              "      <td>kevin_magnussen</td>\n",
+              "      <td>20</td>\n",
+              "      <td>MAG</td>\n",
+              "      <td>http://en.wikipedia.org/wiki/Kevin_Magnussen</td>\n",
+              "      <td>Kevin</td>\n",
+              "      <td>Magnussen</td>\n",
+              "      <td>1992-10-05</td>\n",
+              "      <td>Danish</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>\n",
+              "      <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-90eaf397-f606-456a-821a-b602f5aec1df')\"\n",
+              "              title=\"Convert this dataframe to an interactive table.\"\n",
+              "              style=\"display:none;\">\n",
+              "        \n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\"viewBox=\"0 0 24 24\"\n",
+              "       width=\"24px\">\n",
+              "    <path d=\"M0 0h24v24H0V0z\" fill=\"none\"/>\n",
+              "    <path d=\"M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z\"/><path d=\"M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z\"/>\n",
+              "  </svg>\n",
+              "      </button>\n",
+              "      \n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      flex-wrap:wrap;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "      <script>\n",
+              "        const buttonEl =\n",
+              "          document.querySelector('#df-90eaf397-f606-456a-821a-b602f5aec1df button.colab-df-convert');\n",
+              "        buttonEl.style.display =\n",
+              "          google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "        async function convertToInteractive(key) {\n",
+              "          const element = document.querySelector('#df-90eaf397-f606-456a-821a-b602f5aec1df');\n",
+              "          const dataTable =\n",
+              "            await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                     [key], {});\n",
+              "          if (!dataTable) return;\n",
+              "\n",
+              "          const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "            '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "            + ' to learn more about interactive tables.';\n",
+              "          element.innerHTML = '';\n",
+              "          dataTable['output_type'] = 'display_data';\n",
+              "          await google.colab.output.renderOutput(dataTable, element);\n",
+              "          const docLink = document.createElement('div');\n",
+              "          docLink.innerHTML = docLinkHtml;\n",
+              "          element.appendChild(docLink);\n",
+              "        }\n",
+              "      </script>\n",
+              "    </div>\n",
+              "  </div>\n",
+              "  "
+            ]
+          },
+          "metadata": {},
+          "execution_count": 23
+        }
+      ]
+    }
+  ]
+}
